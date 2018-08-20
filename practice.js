@@ -16,10 +16,12 @@ window.onload = function() {
     // Create an array 
 
     let array = [1,4,3,6,4,5,6,7,1,3,4];
+    let array2 = [2];
 
     // Populate linked list with data from array
 
     array.forEach(elem => L1.insertNodeAtTail(elem));
+    array2.forEach(elem => L2.insertNodeAtTail(elem));
 
     // L1.insertNodeAtTail(16);
     // L1.deleteNode(1);
@@ -28,8 +30,14 @@ window.onload = function() {
 
     // Create a cycle in linked list
     L1.head.next.next.next.next.next.next = L1.head.next.next.next;
+    L2.head.next = L2.head;
+    // L2.head.next.next.next = L2.head.next;
 
-    let string = L1.detectCycle();
+    // console.log(L2.printList());
+
+    let string = L2.detectCycle();
+
+    
 
     $('#answer').html("Does linked list have a cycle? " + string);
 
@@ -151,19 +159,23 @@ class LinkedList {
     }
 
     detectCycle (){
-       let n1 = this.head;
-       let n2 = this.head;
+        if(this.head == null || this.head.next == null) {
+            return false
+        }
 
-       while (n2.next){
+        let n1 = this.head;
+        let n2 = this.head;
+
+        while (n2 && n2.next){
            n1 = n1.next;
            n2 = n2.next.next;
 
            if(n1 == n2){
                return true;
            }
-       }
+        }
 
-       return false;
+        return false;
     }
 }
 
