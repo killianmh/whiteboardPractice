@@ -38,8 +38,14 @@ window.onload = function() {
     let string = L2.detectCycle();
 
     
+    // Swap variables
 
-    $('#answer').html("Does linked list have a cycle? " + string);
+    let int1 = 57;
+    let int2 = 76;
+
+    let arr = swap(int1, int2);
+
+    $('#answer').html("int1: " + int1 + " int2: " + int2 + " " + arr[0] + " " + arr[1]);
 
 
 }
@@ -82,7 +88,7 @@ function intToRom(int) {
     Detect cycle in linked list
    ---------------------------------*/
 
-name = "Detect cycle in linked list";
+// name = "Detect cycle in linked list";
 
 // Create class for creating singly linked list (ES6 syntax)
 
@@ -179,4 +185,25 @@ class LinkedList {
     }
 }
 
+
+/* ---------------------------------
+    Swap two integers with no temporary variables
+   ---------------------------------*/
+
+    name = "Swap Two";
+
+    function swap (int1, int2){
+        console.log("int1: " + int1);
+        console.log("int2: " + int2);
+
+        int1 = int1 + int2;
+        int2 = int1 - int2;
+        int1 = int1 - int2;
+
+        console.log("int1: " + int1);
+        console.log("int2: " + int2);
+        
+        let arr = [int1, int2];
+        return arr;
+    }
 
