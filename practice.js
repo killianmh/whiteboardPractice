@@ -45,7 +45,12 @@ window.onload = function() {
 
     let arr = swap(int1, int2);
 
-    $('#answer').html("int1: " + int1 + " int2: " + int2 + " " + arr[0] + " " + arr[1]);
+    // Clock Angle
+
+    // Fibanacci
+
+
+    $('#answer').html(fib(100));
 
 
 }
@@ -202,8 +207,52 @@ class LinkedList {
 
         console.log("int1: " + int1);
         console.log("int2: " + int2);
-        
+
         let arr = [int1, int2];
         return arr;
     }
 
+/*  ----------------------------------------------------------------------------
+    Given two integers, an hour and a minute, write a function to calculate 
+    the angle between the two hands on a clock representing that time.
+    ----------------------------------------------------------------------------*/
+
+    function clockAngle(hr, min){
+        let minAngle = min * 6;
+        let hrAngle = (hr * 30) + (min/2);
+
+        if(hrAngle > minAngle) {
+            if((hrAngle - minAngle) > 180){
+                return (360 - (hrAngle - minAngle))
+            }
+            else {
+                return(hrAngle - minAngle);
+            }
+        }
+        else {
+            if((minAngle - hrAngle) > 180){
+                return (360 - (minAngle - hrAngle))
+            }
+            else {
+                return (minAngle - hrAngle);
+            }
+        }
+    }
+
+/*  ----------------------------------------------------------------------------
+    Given an integer n, write a function to compute the nth Fibonacci number.
+    ----------------------------------------------------------------------------*/
+function fib (int) {
+    if(x < 0){
+        return "Error";
+    }
+    if(x === 0){
+        return 0;
+    }
+
+    let cache = [0,1];
+
+    function fibCalc (prev1, prev2) {
+        cache
+    }
+}
